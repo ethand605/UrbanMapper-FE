@@ -629,7 +629,7 @@ const response = {
   "status": "OK"
 };
 
-function MyComponent() {
+function Map() {
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     libraries: ["geometry"]
@@ -664,4 +664,4 @@ function MyComponent() {
   return isLoaded ? renderMap() : <p>Loading..</p>;
 }
 
-export default MyComponent;
+export default Map;

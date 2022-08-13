@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import MyComponent from '../Components/Direction';
+import Map from '../Components/map';
 
 const Home: NextPage = () => {
-  return <MyComponent />
+  return <Map />
     
 }
 
