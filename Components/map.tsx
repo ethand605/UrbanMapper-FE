@@ -1,6 +1,7 @@
 import {GoogleMap, useJsApiLoader, StandaloneSearchBox, OverlayView, Autocomplete } from "@react-google-maps/api";
 import React, {useState} from "react";
 import Polylines from "./polylines";
+import TripInfoWindow from "./tripInfoWindow";
 // import {useEffect, useState, useCallback} from "react";
 
 const containerStyle = {
@@ -177,46 +178,47 @@ function Map() {
                         {/*        </button>*/}
                         {/*    </div>*/}
                         {/*</OverlayView>*/}
-                        <div style={{
-                            maxWidth: "500px",
-                            position: "fixed",
-                            // top: "20px",
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            zIndex: 10,
-                            display: "flex",
-                        }}>
-                            <StandaloneSearchBox
-                                onPlacesChanged={onPlacesChanged}
-                                onLoad={onOriginSBLoad}
-                            >
-                                <input
-                                    type="text"
-                                    placeholder="Customized your placeholder"
-                                    style={{
-                                        boxSizing: `border-box`,
-                                        border: `1px solid transparent`,
-                                        width: `240px`,
-                                        height: `32px`,
-                                        padding: `0 12px`,
-                                        borderRadius: `3px`,
-                                        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                                        fontSize: `14px`,
-                                        outline: `none`,
-                                        textOverflow: `ellipses`,
-                                        position: "absolute",
-                                        left: "50%",
-                                        marginLeft: "-120px"
-                                    }}
-                                />
-                            </StandaloneSearchBox>
-                            <button style={{
-                                background: "#FFF",
-                                border: "1px solid #CCC",
-                                fontSize: "1rem",
-                                cursor: "pointer",
-                            }}>Search</button>
-                        </div>
+
+                        {/*<div style={{*/}
+                        {/*    maxWidth: "500px",*/}
+                        {/*    position: "fixed",*/}
+                        {/*    // top: "20px",*/}
+                        {/*    left: "50%",*/}
+                        {/*    transform: "translateX(-50%)",*/}
+                        {/*    zIndex: 10,*/}
+                        {/*    display: "flex",*/}
+                        {/*}}>*/}
+                        {/*    <StandaloneSearchBox*/}
+                        {/*        // onPlacesChanged={onPlacesChanged}*/}
+                        {/*        // onLoad={onOriginSBLoad}*/}
+                        {/*    >*/}
+                        {/*        <input*/}
+                        {/*            type="text"*/}
+                        {/*            placeholder="Customized your placeholder"*/}
+                        {/*            style={{*/}
+                        {/*                boxSizing: `border-box`,*/}
+                        {/*                border: `1px solid transparent`,*/}
+                        {/*                width: `240px`,*/}
+                        {/*                height: `32px`,*/}
+                        {/*                padding: `0 12px`,*/}
+                        {/*                borderRadius: `3px`,*/}
+                        {/*                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,*/}
+                        {/*                fontSize: `14px`,*/}
+                        {/*                outline: `none`,*/}
+                        {/*                textOverflow: `ellipses`,*/}
+                        {/*                position: "absolute",*/}
+                        {/*                left: "50%",*/}
+                        {/*                marginLeft: "-120px"*/}
+                        {/*            }}*/}
+                        {/*        />*/}
+                        {/*    </StandaloneSearchBox>*/}
+                        {/*    <button style={{*/}
+                        {/*        background: "#FFF",*/}
+                        {/*        border: "1px solid #CCC",*/}
+                        {/*        fontSize: "1rem",*/}
+                        {/*        cursor: "pointer",*/}
+                        {/*    }}>Search</button>*/}
+                        {/*</div>*/}
 
                     </GoogleMap>
                 </>
