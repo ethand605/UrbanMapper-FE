@@ -1,15 +1,15 @@
 import React from "react";
 import {Polyline, InfoWindow} from "@react-google-maps/api";
+import Image from "next/image";
+import busIcon from "../assets/bus_icon.png";
+import bikeIcon from "../assets/bike_icon.svg";
 
-const busIconStyle = {
-    maxHeight: "6%",
-    maxWidth : "6%",
-}
 
 export default function Polylines({directions}) {
-    const polylines: JSX.Element[] = directions.routes[0].legs[0].steps.map(step => {
+    console.log(directions);
+    const polylines: JSX.Element[] = directions.steps.map(step => {
         let options: google.maps.PolylineOptions;
-        if (step.travel_mode == "WALKING") {
+        if (step.travel_mode == "bicycling") {
             options = {
                 strokeColor: "#036aab",
                 strokeOpacity: 0,
@@ -35,31 +35,29 @@ export default function Polylines({directions}) {
         }
 
         const getTransitDetails = (details): JSX.Element => {
-            return <p>
-                <img style={busIconStyle} src="https://maps.gstatic.com/mapfiles/place_api/icons/v2/bus_share_taxi_pinlet.svg"/>
-                <span>     <b style={{background: "#00aff2"}}>  {details.line.short_name} </b> - {details.line.name} - {details.line.headsign}</span>
+            return <>
+                <Image width='17%' height='17%' layout='fixed' src={busIcon}/>
+                <span> <b style={{background: "#00aff2"}}>  {details.line.short_name}</b></span> 
+                {/* <br/>
+                <span><b>{details.departure_time.text}</b> {details.departure_stop.name}</span>
                 <br/>
-                <span>{details.departure_time.text} {details.departure_stop.name}</span>
-                <br/>
-                <span>{details.arrival_time.text} {details.arrival_stop.name}</span>
-            </p>
+                <span><b>{details.arrival_time.text}</b> {details.arrival_stop.name}</span> */}
+            </>
         }
 
-        return <React.Fragment key={step.polyline.points}>
+        return <React.Fragment key={step.polyline}>
             <InfoWindow
                 position={step.start_location}
             >
-                <div>
-                    <p>{step.html_instructions} <br/><b>{step.duration.text}</b></p>
-                    {step.transit_details &&
-                        <>
-                            {getTransitDetails(step.transit_details)}
-                        </>
-                    }
+                <div>   
+                    <p>
+                        <b>{step.duration.text} </b>    
+                        {step.transit_details!=undefined ? getTransitDetails(step.transit_details) : <Image width='17%' height='17%' layout='fixed' src={bikeIcon}/>}
+                    </p>
                 </div>
             </InfoWindow>
             <Polyline
-                path={google.maps.geometry.encoding.decodePath(step.polyline.points)}
+                path={google.maps.geometry.encoding.decodePath(step.polyline)}
                 options={options}
             />
 
