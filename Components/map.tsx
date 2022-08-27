@@ -1,4 +1,4 @@
-import {GoogleMap, useJsApiLoader, StandaloneSearchBox, OverlayView} from "@react-google-maps/api";
+import {GoogleMap, useJsApiLoader, StandaloneSearchBox, OverlayView, Autocomplete } from "@react-google-maps/api";
 import React, {useState} from "react";
 import Polylines from "./polylines";
 import TripInfoWindow from "./tripInfoWindow";
@@ -632,57 +632,90 @@ function Map() {
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         libraries: ["geometry", "drawing", "places"]
     });
-
+    const [map, setMap] = useState(null);
     const [originSearchBox, setOriginSearchBox] = useState(null);
-    const onPlacesChanged = () => console.log(originSearchBox.getPlaces());
+    const onPlacesChanged = () => console.log(originSearchBox.getPlaces()[0].formatted_address);
     const onOriginSBLoad = (ref: google.maps.places.SearchBox) => {
         setOriginSearchBox(ref);
     };
 
 
-
+    //extract this into a separate component  https://www.npmjs.com/package/@react-google-maps/api#:~:text=If%20you%20want%20to%20use%20window.google%20object%2C%20you%20need%20to%20extract%20GoogleMap%20in%20separate%20module%2C%20so%20it%20is%20lazy%20executed%20then%20google%2Dmaps%2Dapi%20script%20is%20loaded%20and%20executed%20by%20%3CLoadScript%20/%3E.%20If%20you%20try%20to%20use%20window.google%20before%20it%20is%20loaded%20it%20will%20be%20undefined%20and%20you%27ll%20get%20a%20TypeError.
     const renderMap = () => {
         return (isLoaded ?
                 <>
                     <GoogleMap
-                        options={{mapTypeControlOptions: {position: google.maps.ControlPosition.BOTTOM_RIGHT}}}
+                        options={{
+                            mapTypeControlOptions: {position: google.maps.ControlPosition.BOTTOM_RIGHT},
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            fullscreenControl: false,
+                    }}
                         mapContainerStyle={containerStyle}
                         center={center}
+                        onLoad={map => setMap(map)}
                         zoom={14}>
                         <Polylines directions={response}/>
-                        <OverlayView
-                            position={{lat: 33.67348409529896,
-                                lng: -117.795852740205}}
-                            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-                        >
-                            <div><p>info</p></div>
-                        </OverlayView>
-                        <StandaloneSearchBox
-                            onPlacesChanged={onPlacesChanged}
-                            onLoad={onOriginSBLoad}
-                        >
-                            <input
-                                type="text"
-                                placeholder="Customized your placeholder"
-                                style={{
-                                    boxSizing: `border-box`,
-                                    border: `1px solid transparent`,
-                                    width: `240px`,
-                                    height: `32px`,
-                                    padding: `0 12px`,
-                                    borderRadius: `3px`,
-                                    boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                                    fontSize: `14px`,
-                                    outline: `none`,
-                                    textOverflow: `ellipses`,
-                                    position: "absolute",
-                                    left: "50%",
-                                    marginLeft: "-120px"
-                                }}
-                            />
-                        </StandaloneSearchBox>
+                        {/*<OverlayView*/}
+                        {/*    position={{lat: 33.67348409529896,*/}
+                        {/*        lng: -117.795852740205}}*/}
+                        {/*    mapPaneName={OverlayView.FLOAT_PANE}*/}
+                        {/*>*/}
+                        {/*    <div style={{background: 'white',*/}
+                        {/*        border: '1px solid #ccc',*/}
+                        {/*        padding: 15}}>*/}
+                        {/*        <h1>OverlayView</h1>*/}
+
+                        {/*        <button*/}
+                        {/*            // onClick={onClick}*/}
+                        {/*            type='button'*/}
+                        {/*        >*/}
+                        {/*            Click me*/}
+                        {/*        </button>*/}
+                        {/*    </div>*/}
+                        {/*</OverlayView>*/}
+                        <div style={{
+                            maxWidth: "500px",
+                            position: "fixed",
+                            // top: "20px",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            zIndex: 10,
+                            display: "flex",
+                        }}>
+                            <StandaloneSearchBox
+                                onPlacesChanged={onPlacesChanged}
+                                onLoad={onOriginSBLoad}
+                            >
+                                <input
+                                    type="text"
+                                    placeholder="Customized your placeholder"
+                                    style={{
+                                        boxSizing: `border-box`,
+                                        border: `1px solid transparent`,
+                                        width: `240px`,
+                                        height: `32px`,
+                                        padding: `0 12px`,
+                                        borderRadius: `3px`,
+                                        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                                        fontSize: `14px`,
+                                        outline: `none`,
+                                        textOverflow: `ellipses`,
+                                        position: "absolute",
+                                        left: "50%",
+                                        marginLeft: "-120px"
+                                    }}
+                                />
+                            </StandaloneSearchBox>
+                            <button style={{
+                                background: "#FFF",
+                                border: "1px solid #CCC",
+                                fontSize: "1rem",
+                                cursor: "pointer",
+                            }}>Search</button>
+                        </div>
+
                     </GoogleMap>
-                    <TripInfoWindow/>
                 </>
                 :
                 <p>loading...</p>

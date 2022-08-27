@@ -1,23 +1,21 @@
+import {CSSProperties} from "react";
 const floatingWinStyle = {
-    Position: "relative",
-    top: "0px",
-    left: "25%",
-    width: "25%",
-    zIndex: "5",
+    position: "absolute",
+    top: "0vh",
     backgroundColor: "#fff",
-    // padding: "5px",
-    // border: "1px solid #999",
-    // TextAlign: "center",
-    // fontFamily: "'Roboto', 'sans-serif'",
-    // lineHeight: "30px",
-    // paddingLeft: "10px",
+    zIndex: 10,
+    margin: 0,
+    padding: 0,
+    width: "20rem",
+    height: "100vh",
+    border: "1px solid black",
 }
 
 
 export default function TripInfoWindow() {
     return (
-        <div style={floatingWinStyle}>
-            <p>do this</p>
+        <div style={floatingWinStyle as CSSProperties}>
+            do this
         </div>
     )
 }

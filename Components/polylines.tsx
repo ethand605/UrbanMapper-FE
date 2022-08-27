@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Polyline, InfoWindow} from "@react-google-maps/api";
 
 const busIconStyle = {
@@ -7,6 +7,7 @@ const busIconStyle = {
 }
 
 export default function Polylines({directions}) {
+    const [showLegInfo, setShowLegInfo] = useState(false);
     const polylines: JSX.Element[] = directions.routes[0].legs[0].steps.map(step => {
         let options: google.maps.PolylineOptions;
         if (step.travel_mode == "WALKING") {
@@ -46,21 +47,25 @@ export default function Polylines({directions}) {
         }
 
         return <React.Fragment key={step.polyline.points}>
-            <InfoWindow
-                position={step.start_location}
-            >
-                <div>
-                    <p>{step.html_instructions} <br/><b>{step.duration.text}</b></p>
-                    {step.transit_details &&
-                        <>
-                            {getTransitDetails(step.transit_details)}
-                        </>
-                    }
-                </div>
-            </InfoWindow>
+            {/*TODO: extract each polyline into a single comopnent, each one will have their showLegInfo hook*/}
+            {showLegInfo &&
+                <InfoWindow
+                    position={step.start_location}
+                >
+                    <div>
+                        <p>{step.html_instructions} <br/><b>{step.duration.text}</b></p>
+                        {step.transit_details &&
+                            <>
+                                {getTransitDetails(step.transit_details)}
+                            </>
+                        }
+                    </div>
+                </InfoWindow>
+            }
             <Polyline
                 path={google.maps.geometry.encoding.decodePath(step.polyline.points)}
                 options={options}
+                onClick={() => setShowLegInfo(!showLegInfo)}
             />
 
         </React.Fragment>

@@ -1,9 +1,15 @@
-import type { NextPage } from 'next';
+import type {NextPage} from 'next';
 import Map from '../Components/map';
+import TripInfoWindow from "../Components/tripInfoWindow";
 
 const Home: NextPage = () => {
-  return <Map />
-    
+    return (
+        <div>
+            <Map/>
+            <TripInfoWindow/>
+        </div>
+    )
+
 }
 
 export default Home;
