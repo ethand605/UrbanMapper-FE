@@ -36,17 +36,13 @@ export default function PolyLine ({step}) {
         return <>
             <Image width='17%' height='17%' layout='fixed' src={busIcon}/>
             <span> <b style={{background: "#00aff2"}}>  {details.line.short_name}</b></span>
-            {/* <br/>
-            <span><b>{details.departure_time.text}</b> {details.departure_stop.name}</span>
-            <br/>
-            <span><b>{details.arrival_time.text}</b> {details.arrival_stop.name}</span> */}
         </>
     }
 
 
     return <React.Fragment key={step.polyline}>
-        {/*TODO: extract each polyline into a single comopnent, each one will have their showLegInfo hook*/}
         {showLegInfo &&
+            //show leg info in an info window when polyline is clicked
             <InfoWindow
                 position={step.start_location}
             >

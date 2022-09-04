@@ -20,37 +20,37 @@ const response = {
     "steps": [
         {
             "distance": {
-                "text": "0.7 mi",
-                "value": 1183
+                "text": "1.2 mi",
+                "value": 1940
             },
             "duration": {
-                "text": "5 mins",
-                "value": 282
+                "text": "6 mins",
+                "value": 378
             },
-            "polyline": "qvolEz|}mULh@AVnBFNuDT}CZiC^sB`@uBx@aD`AqCt@iB~A_DhB{ChEhEvC~CdB`BXV",
+            "polyline": "qvolEz|}mULh@AVvAHExAEjBIpAa@jEWlB_@nBaA`Ei@jB{@zBs@~AkAzBW`@wB`DmDjEmA`Bu@rAaEbJgA~B{@xAgAzAaBjB}DzDq@x@k@v@w@pAU^TTvAvA",
             "start_location": {
                 "lat": 33.6729271,
                 "lng": -117.7955189
             },
             "end_location": {
-                "lat": 33.6673212,
-                "lng": -117.7911323
+                "lat": 33.6804434,
+                "lng": -117.8120789
             },
             "travel_mode": "bicycling"
         },
         {
             "distance": {
-                "text": "4.6 mi",
-                "value": 7421
+                "text": "3.4 mi",
+                "value": 5435
             },
             "duration": {
-                "text": "18 mins",
-                "value": 1080
+                "text": "14 mins",
+                "value": 840
             },
-            "polyline": "{snlEva}mUHMn@r@HD^`@LLNPj@l@r@r@XXf@j@NPb@\\JJ^\\DBLFl@l@DB^^PNNPjBfBp@n@DHz@x@NPDDl@l@NNJHdAhAlCpCz@t@l@n@VXn@n@BDn@p@XX@Bt@t@@@`@d@NRBDBBZ`@V`@t@lABFBBd@`AJN@BDLRd@HRRd@DNFPFRPf@Ld@Lf@Np@Px@aA\\o@V_@PWNIDOLo@b@c@b@IHMJQRCBS\\]h@Sb@GJSb@Qh@Oh@S`Ac@tCEVM`AIn@U`BId@K^Mh@AFK^AFGVWhAGPm@fBQXKPCH_@r@S^_@l@iAjBa@n@i@x@OTs@fAOZaAbBMPOXGNEJGNe@hBEPG\\Mt@[hBEVG|@Cn@A^?L?V?N@J?T@P@\\BTFVFZBRBHHXFVBJXx@JVVf@JRRXlArBHLJRP\\L\\FL@DFNFT?@DPDVBNFXD`@Dd@B\\@N@r@FhB?V?R?|A?PAPARAP?@?DC^?NCRE~@ABCb@?@Gd@AHCRE\\G^Ml@Kh@CNGVCJI^GVSr@ELITIVIVIRGPEJELEHITKVQ\\CFMRIT?NCDg@x@U^OVWb@a@r@GLsAtBQXj@\\DBTN^T@?h@ZLFf@RTFr@TPFH@XH\\H\\H|@J~@HpADT@nA@N?R@P?b@?P@dA@nCBrDDb@@fA@b@@p@@`@@`@@\\@J?JCjBBv@@\\BT?z@BR@L@L@^An@El@GTE^G\\Il@OPEFCp@Q^M`@ORK^OzBiANIjAm@t@_@tAs@tBgAjAm@hB}@LIXOf@WZOvAs@Fd@Fh@Hl@Fd@NbA@NLx@BPZdCF`@d@rDBNb@dD@FJ~@BL@H\\fCBRBHNjAXvBFh@Ff@BRBLDf@Jz@Jx@@BFb@RzAb@|C@NJl@Fh@@H@B@JB^@PBRDj@AX?f@?h@?b@Af@An@C^E^Ix@EZADAJEPGZAFWfAMd@K\\GRKVKVS`@MVEJ_@n@]n@IPKNABKPEJKPCDCC",
+            "polyline": "_fqlExdanUJOHHv@t@b@b@ZXjBfBj@h@`BbBn@n@`A~@d@f@zBzBzA~A^`@VRt@t@VRdAlAdAdA@?hAfAv@v@ZXnAlAJJLNt@r@dAbApAnAPPpFpF`A|@r@n@z@x@RRbC|Br@p@XXRTTRf@f@x@z@NN~A`Bz@`Az@|@dAfAl@n@JJ~@hAz@v@v@t@`@^h@b@j@\\DBTN^T@?h@ZLFf@RTFr@TPFH@XH\\H\\H|@J~@HpADT@nA@N?R@P?b@?P@dA@nCBrDDb@@fA@b@@p@@`@@`@@\\@J?JCjBBv@@\\BT?z@BR@L@L@^An@El@GTE^G\\Il@OPEFCp@Q^M`@ORK^OzBiANIjAm@t@_@tAs@tBgAjAm@hB}@LIXOf@WZOvAs@Fd@Fh@Hl@Fd@NbA@NLx@BPZdCF`@d@rDBNb@dD@FJ~@BL@H\\fCBRBHNjAXvBFh@Ff@BRBLDf@Jz@Jx@@BFb@RzAb@|C@NJl@Fh@@H@B@JB^@PBRDj@AX?f@?h@?b@Af@An@C^E^Ix@EZADAJEPGZAFWfAMd@K\\GRKVKVS`@MVEJ_@n@]n@IPKNABKPEJKPCDCC",
             "start_location": {
-                "lat": 33.667337,
-                "lng": -117.791157
+                "lat": 33.68048100000001,
+                "lng": -117.812134
             },
             "end_location": {
                 "lat": 33.64936,
@@ -66,23 +66,23 @@ const response = {
                     "name": "Campus-University Center"
                 },
                 "arrival_time": {
-                    "text": "11:23am",
+                    "text": "1:49pm",
                     "time_zone": "America/Los_Angeles",
-                    "value": 1661451818
+                    "value": 1662238140
                 },
                 "departure_stop": {
                     "location": {
-                        "lat": 33.667337,
-                        "lng": -117.791157
+                        "lat": 33.68048100000001,
+                        "lng": -117.812134
                     },
-                    "name": "Jeffrey-Quailcreek"
+                    "name": "Culver-Alton"
                 },
                 "departure_time": {
-                    "text": "11:05am",
+                    "text": "1:35pm",
                     "time_zone": "America/Los_Angeles",
-                    "value": 1661450738
+                    "value": 1662237300
                 },
-                "headsign": "UC Irvine",
+                "headsign": "Newport Transp Center",
                 "line": {
                     "agencies": [
                         {
@@ -91,18 +91,18 @@ const response = {
                             "url": "http://www.octa.net/Bus-Transit/Overview"
                         }
                     ],
-                    "color": "#938177",
-                    "name": "Orange - Irvine",
-                    "short_name": "167",
+                    "color": "#00aff2",
+                    "name": "Tustin - Newport Beach",
+                    "short_name": "79",
                     "text_color": "#000000",
-                    "url": "http://www.octa.net/eBusBook/RoutePDF/route167.pdf",
+                    "url": "http://www.octa.net/eBusBook/RoutePDF/route079.pdf",
                     "vehicle": {
                         "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
                         "name": "Bus",
                         "type": "BUS"
                     }
                 },
-                "num_stops": 16
+                "num_stops": 11
             }
         },
         {
@@ -126,9 +126,9 @@ const response = {
             "travel_mode": "bicycling"
         }
     ],
-    "duration": 28.466666666666665,
-    "departure_time": "11:00:56 AM",
-    "arrival_time": "11:29:24 AM"
+    "duration": 26,
+    "departure_time": "01:28 PM",
+    "arrival_time": "01:54 PM"
 };
 
 function Map() {
