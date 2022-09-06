@@ -26,9 +26,9 @@ export default function PolyLine ({step}) {
         }
     } else {
         options = {
-            strokeColor: "#009dff",
+            strokeColor: "#32a3f1",
             strokeOpacity: 1,
-            strokeWeight: 7,
+            strokeWeight: 3,
         }
     }
 

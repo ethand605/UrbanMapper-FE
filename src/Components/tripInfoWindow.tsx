@@ -44,13 +44,17 @@ export default function TripInfoWindow({directions}) {
             </p>
             {
                 directions.steps.map((step, index) => {
+                    const stepDepartTime = currentSeconds;
                     currentSeconds += step.duration.value;
                     let numStops = `(${step.transit_details?.num_stops} stops)`;
                     return (
                         <div key={index}>
-                            <p style={{fontWeight: '500'}}>{secondsToDatePST(currentSeconds)} - {step.start_address.split(",")[0]}</p>
-                            <p>{step.transit_details?.line?.short_name} <Image width='17%' height='17%' layout='fixed'
-                                                                               src={transitModeToIcon.get(step.travel_mode)}/> {step.duration.text} {step.transit_details && numStops}
+                            <p style={{fontWeight: '500'}}>{secondsToDatePST(stepDepartTime)} - {step.start_address.split(",")[0]}</p>
+                            <p>
+                                {step.transit_details?.line?.short_name}
+                                <Image width='17%' height='17%' layout='fixed' src={transitModeToIcon.get(step.travel_mode)}/>
+                                {step.duration.text}
+                                {step.transit_details && numStops}
                             </p>
                         </div>
                     );
