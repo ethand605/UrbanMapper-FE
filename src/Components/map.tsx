@@ -1,6 +1,6 @@
 import {GoogleMap} from "@react-google-maps/api";
 import React, {useState} from "react";
-import Polylines from "./polylines";
+import OverviewPolyline from "./overviewPolyline";
 
 const containerStyle = {
     Position: "absolute",
@@ -30,7 +30,7 @@ function Map({directions}) {
             onLoad={map => setMap(map)}
             zoom={14}>
             {/*TODO: place a marker at the start and end*/}
-            <Polylines directions={directions}/>
+            <OverviewPolyline directions={directions}/>
         </GoogleMap>
     </div>
     );

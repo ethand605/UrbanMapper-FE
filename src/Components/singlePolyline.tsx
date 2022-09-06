@@ -4,7 +4,7 @@ import busIcon from "../assets/bus_icon.png";
 import {InfoWindow, Polyline} from "@react-google-maps/api";
 import bikeIcon from "../assets/bike_icon.svg";
 
-export default function PolyLine ({step}) {
+export default function SinglePolyline ({step}) {
     const [showLegInfo, setShowLegInfo] = useState(false);
     let options: google.maps.PolylineOptions;
     if (step.travel_mode == "bicycling") {
