@@ -240,10 +240,9 @@ const Home: NextPage = () => {
     return (
         !isLoaded ? <div>Loading...</div> :
         <>
-            {/*use redux to pass in the steps here*/}
-                <Map directions={directions}/>
-                <TripInfoWindow directions={directions}/>
-                <SearchBar/>
+            <Map directions={directions}/>
+            <TripInfoWindow directions={directions}/>
+            <SearchBar/>
         </>
     )
 }

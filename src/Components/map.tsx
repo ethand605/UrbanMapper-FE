@@ -1,6 +1,6 @@
 import {GoogleMap} from "@react-google-maps/api";
 import React, {useState} from "react";
-import OverviewPolyline from "./overviewPolyline";
+import OverviewPolyline from "./polylines";
 
 const containerStyle = {
     Position: "absolute",
@@ -13,7 +13,7 @@ const center = {
     lng: -117.795852740205,
 }; //TODO: set this to home address later on
 
-function Map({directions}) {
+const Map = ({directions}) => {
     const [map, setMap] = useState(null);
 
     return (

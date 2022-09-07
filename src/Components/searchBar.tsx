@@ -23,6 +23,8 @@ const inputBoxesStyle = {
 } as React.CSSProperties;
 
 export default function SearchBar() {
+    //TODO: change this to controlled form later https://reactjs.org/docs/uncontrolled-components.html
+    //https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/ so I can control form value via a prop
     const originBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
     const destinationBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
 
