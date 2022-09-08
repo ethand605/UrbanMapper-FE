@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const floatingPanelStyle = {
     position: "absolute",
-    top: "4vh",
+    top: "8vh",
     backgroundColor: "#fff",
     zIndex: 10,
     margin: 0,

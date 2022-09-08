@@ -7,6 +7,7 @@ import bikeIcon from "../assets/bike_icon.svg";
 const SinglePolyline = ({step}) => {
     const [showLegInfo, setShowLegInfo] = useState(false);
     let options: google.maps.PolylineOptions;
+    //TODO: add outline
     if (step.travel_mode == "bicycling") {
         options = {
             strokeColor: "#036aab",
