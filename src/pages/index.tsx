@@ -4,6 +4,7 @@ import TripInfoWindow from "../Components/tripInfoWindow";
 import React from "react";
 import {useJsApiLoader} from "@react-google-maps/api";
 import SearchBar from "../Components/searchBar";
+import {DirectionProvider} from "../hooks/directionContext";
 
 const directions = {
     "steps": [
@@ -236,14 +237,15 @@ const Home: NextPage = () => {
         libraries: ["geometry", "drawing", "places"]
     });
 
-
     return (
         !isLoaded ? <div>Loading...</div> :
-        <>
-            <Map directions={directions}/>
-            <TripInfoWindow directions={directions}/>
+        <DirectionProvider>
+            {/*<Map directions={directions}/>*/}
+            {/*<TripInfoWindow directions={directions}/>*/}
+            <Map/>
+            <TripInfoWindow/>
             <SearchBar/>
-        </>
+        </DirectionProvider>
     )
 }
 

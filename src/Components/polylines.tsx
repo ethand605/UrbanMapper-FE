@@ -3,6 +3,9 @@ import Image from "next/image";
 import busIcon from "../assets/bus_icon.png";
 import {InfoWindow, Polyline} from "@react-google-maps/api";
 import bikeIcon from "../assets/bike_icon.svg";
+import {useDirection} from "../hooks/directionContext";
+
+//TODO: use SSR?
 
 const SinglePolyline = ({step}) => {
     const [showLegInfo, setShowLegInfo] = useState(false);
@@ -40,7 +43,6 @@ const SinglePolyline = ({step}) => {
         </>
     }
 
-
     return <React.Fragment key={step.polyline}>
         {showLegInfo &&
             //show leg info in an info window when polyline is clicked
@@ -65,7 +67,13 @@ const SinglePolyline = ({step}) => {
     </React.Fragment>
 }
 
-const OverviewPolyline = ({directions}) => {
+const OverviewPolyline = () => {
+    //TODO: make sure this triggers a re-render
+    const directions = useDirection();
+    if (!directions) {
+        return;
+    }
+    console.log("reached overview polyline", directions);
     return <>{directions.steps.map(step => {
         return <SinglePolyline key={step.polyline} step={step}/>
     })}</>;

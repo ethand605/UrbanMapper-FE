@@ -1,6 +1,7 @@
 import React, {useRef} from "react";
 import {Autocomplete} from "@react-google-maps/api";
 import {getMultiModalDirections} from "../services/directions";
+import {useDirectionDispatch} from "../hooks/directionContext";
 
 //TODO: style it better
 const searchBarStyle = {
@@ -38,6 +39,8 @@ const searchButtonStyle = {
 } as React.CSSProperties;
 
 export default function SearchBar() {
+    const dispatch = useDirectionDispatch();
+
     //TODO: change this to controlled form later https://reactjs.org/docs/uncontrolled-components.html
     //https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/ so I can control form value via a prop
     const originBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
@@ -47,8 +50,11 @@ export default function SearchBar() {
         if (originBoxRef.current.value==='' || destinationBoxRef.current.value===''){
             return
         }
-        //put the direction into a custom hook
-        getMultiModalDirections(originBoxRef.current.value, destinationBoxRef.current.value);
+        dispatch({
+            type: 'CHANGE_DIRECTIONS',
+            origin: originBoxRef.current.value,
+            destination: destinationBoxRef.current.value
+        });
     }
 
     return(
@@ -56,7 +62,9 @@ export default function SearchBar() {
             <div style={inputBoxesStyle}>
                 <Autocomplete>
                     <input
+                        name='origin'
                         type='text'
+                        autoComplete='new-password'
                         style={inputBoxStyle}
                         placeholder='Origin'
                         ref={originBoxRef}
@@ -64,7 +72,9 @@ export default function SearchBar() {
                 </Autocomplete>
                 <Autocomplete>
                     <input
+                        name='destination'
                         type='text'
+                        autoComplete='new-password'
                         style={inputBoxStyle}
                         placeholder='Destination'
                         ref={destinationBoxRef}
@@ -74,7 +84,8 @@ export default function SearchBar() {
             <button
                 style={searchButtonStyle}
                 type='submit'
-                onClick={getDirections}>
+                onClick={getDirections}
+            >
                 Calculate Route
             </button>
         </div>

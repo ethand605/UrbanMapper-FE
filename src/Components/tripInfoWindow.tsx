@@ -2,6 +2,7 @@ import React, {CSSProperties} from "react";
 import busIcon from "../assets/bus_icon.png";
 import bikeIcon from "../assets/bike_icon.svg";
 import Image from "next/image";
+import {useDirection} from "../hooks/directionContext";
 
 const floatingPanelStyle = {
     position: "absolute",
@@ -15,9 +16,12 @@ const floatingPanelStyle = {
     border: "1px solid black",
 }
 
-export default function TripInfoWindow({directions}) {
+export default function TripInfoWindow() {
+    const directions = useDirection();
+    if (!directions) {
+        return;
+    }
     let currentSeconds: number = directions.departure_time.value;
-
     const transitModeToIcon = new Map();
     transitModeToIcon.set('TRANSIT', busIcon);
     transitModeToIcon.set('bicycling', bikeIcon);
@@ -61,5 +65,7 @@ export default function TripInfoWindow({directions}) {
                 })
             }
         </div>
+
+
     )
 }

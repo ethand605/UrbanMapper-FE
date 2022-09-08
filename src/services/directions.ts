@@ -10,5 +10,5 @@ export const getMultiModalDirections = async (origin: string, destination: strin
             },
     )
     const data = await resp.json();
-    return data;
+    return await resp.json();
 }
