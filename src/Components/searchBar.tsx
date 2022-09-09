@@ -1,7 +1,8 @@
 import React, {useRef} from "react";
 import {Autocomplete} from "@react-google-maps/api";
 import {getMultiModalDirections} from "../services/directions";
-import {useDirectionDispatch} from "../hooks/directionContext";
+import {useDirection} from "../hooks/directionContext";
+
 
 //TODO: style it better
 const searchBarStyle = {
@@ -39,22 +40,18 @@ const searchButtonStyle = {
 } as React.CSSProperties;
 
 export default function SearchBar() {
-    const dispatch = useDirectionDispatch();
-
+    const {directions, setDirections} = useDirection();
     //TODO: change this to controlled form later https://reactjs.org/docs/uncontrolled-components.html
     //https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/ so I can control form value via a prop
     const originBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
     const destinationBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
 
-    const getDirections = () => {
+    const getDirections = async () => {
         if (originBoxRef.current.value==='' || destinationBoxRef.current.value===''){
             return
         }
-        dispatch({
-            type: 'CHANGE_DIRECTIONS',
-            origin: originBoxRef.current.value,
-            destination: destinationBoxRef.current.value
-        });
+        const newDirections = await getMultiModalDirections(originBoxRef.current.value, destinationBoxRef.current.value);
+        setDirections(newDirections);
     }
 
     return(

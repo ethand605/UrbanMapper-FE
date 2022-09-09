@@ -17,7 +17,8 @@ const floatingPanelStyle = {
 }
 
 export default function TripInfoWindow() {
-    const directions = useDirection();
+    const {directions} = useDirection();
+
     if (!directions) {
         return;
     }

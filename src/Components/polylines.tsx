@@ -68,12 +68,10 @@ const SinglePolyline = ({step}) => {
 }
 
 const OverviewPolyline = () => {
-    //TODO: make sure this triggers a re-render
-    const directions = useDirection();
+    const {directions} = useDirection();
     if (!directions) {
         return;
     }
-    console.log("reached overview polyline", directions);
     return <>{directions.steps.map(step => {
         return <SinglePolyline key={step.polyline} step={step}/>
     })}</>;

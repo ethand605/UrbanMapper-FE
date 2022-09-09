@@ -9,6 +9,5 @@ export const getMultiModalDirections = async (origin: string, destination: strin
                 headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
             },
     )
-    const data = await resp.json();
     return await resp.json();
 }
