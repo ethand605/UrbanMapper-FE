@@ -23,4 +23,6 @@ const Home: NextPage = () => {
     )
 }
 
+//todo: use ssg here to fetch stored addresses
+
 export default Home;
