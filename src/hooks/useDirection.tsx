@@ -26,19 +26,19 @@ type step = {
     transit_details?: google.maps.TransitDetails
 };
 
-const DirectionContext = createContext(null);
+const UseDirection = createContext(null);
 
 
 export const DirectionProvider = ({children}: {children: ReactNode}) => {
     const [directions, setDirections] = useState(null);
 
     return (
-        <DirectionContext.Provider value={{directions, setDirections}}>
+        <UseDirection.Provider value={{directions, setDirections}}>
             {children}
-        </DirectionContext.Provider>
+        </UseDirection.Provider>
     );
 }
 
 export function useDirection() {
-    return useContext(DirectionContext);
+    return useContext(UseDirection);
 }

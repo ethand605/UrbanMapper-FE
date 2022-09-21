@@ -5,6 +5,7 @@ import OverviewPolyline from "./polylines";
 const containerStyle = {
     Position: "absolute",
     height: "100vh",
+    width: "100vw",
     zIndex: "0",
 };
 

@@ -2,17 +2,17 @@ import React, {CSSProperties} from "react";
 import busIcon from "../assets/bus_icon.png";
 import bikeIcon from "../assets/bike_icon.svg";
 import Image from "next/image";
-import {useDirection} from "../hooks/directionContext";
+import {useDirection} from "../hooks/useDirection";
 
 const floatingPanelStyle = {
     position: "absolute",
-    top: "8vh",
+    top: "7vh",
     backgroundColor: "#fff",
     zIndex: 10,
     margin: 0,
     padding: 10,
     width: "40vh",
-    height: "96vh",
+    height: "90vh",
     border: "1px solid black",
 }
 

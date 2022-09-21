@@ -1,42 +1,41 @@
 import React, {useRef} from "react";
 import {Autocomplete} from "@react-google-maps/api";
 import {getMultiModalDirections} from "../services/directions";
-import {useDirection} from "../hooks/directionContext";
+import {useDirection} from "../hooks/useDirection";
 
 
 //TODO: style it better
 const searchBarStyle = {
-    top: "0vh",
-    position: "absolute",
-    // height: "4vh",
-    backgroundColor: "#fff",
-    zIndex: 10,
-    margin: 0,
-    display: "flex",
-    flexDirection: "column",
-    width: "40vh",
-    alignItems: "stretch"
+    // top: "0vh",
+    // position: "absolute",
+    // backgroundColor: "#fff",
+    // zIndex: 10,
+    // margin: 0,
+    // display: "flex",
+    // flexDirection: "column",
+    // width: "40vh",
+    // alignItems: "stretch"
 } as React.CSSProperties;
 
 const inputBoxesStyle = {
-    height: "4vh",
-    display:"flex",
-    flexDirection: "row",
-    justifyContent: "space-evenly"
+    // height: "4vh",
+    // display:"flex",
+    // flexDirection: "row",
+    // justifyContent: "space-evenly"
 } as React.CSSProperties;
 
 const inputBoxStyle = {
-    width: "20vh",
-    height: "4vh"
+    // width: "20vh",
+    // height: "4vh"
 } as React.CSSProperties;
 
 const searchButtonStyle = {
-    backgroundColor: "#008CBA",
-    color: "white",
-    border: "none",
-    textAlign: "center",
-    height: "4vh",
-    cursor: "pointer",
+    // backgroundColor: "#008CBA",
+    // color: "white",
+    // border: "none",
+    // textAlign: "center",
+    // height: "4vh",
+    // cursor: "pointer",
 } as React.CSSProperties;
 
 export default function SearchBar() {
@@ -55,8 +54,8 @@ export default function SearchBar() {
     }
 
     return(
-        <div style={searchBarStyle}>
-            <div style={inputBoxesStyle}>
+        <>
+            <div className="searchBar" style={searchBarStyle}>
                 <Autocomplete>
                     <input
                         name='origin'
@@ -77,14 +76,34 @@ export default function SearchBar() {
                         ref={destinationBoxRef}
                     />
                 </Autocomplete>
+                <button
+                    style={searchButtonStyle}
+                    type='submit'
+                    onClick={getDirections}
+                >
+                    Calculate Route
+                </button>
+
             </div>
-            <button
-                style={searchButtonStyle}
-                type='submit'
-                onClick={getDirections}
-            >
-                Calculate Route
-            </button>
-        </div>
+            <style jsx>{`
+                .searchBar{
+                  display: flex;
+                  flex-direction: row;
+                  gap: 9px;
+                  //align-content: center;
+                }
+                
+                input{
+                  height: 3.5vh;
+                  width: 30vh;
+                }
+                
+                button {
+                  height: 3.5vh;
+                }
+            `}
+            </style>
+        </>
+
     );
 }

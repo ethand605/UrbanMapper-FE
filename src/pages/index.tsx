@@ -4,7 +4,8 @@ import TripInfoWindow from "../Components/tripInfoWindow";
 import React from "react";
 import {useJsApiLoader} from "@react-google-maps/api";
 import SearchBar from "../Components/searchBar";
-import {DirectionProvider} from "../hooks/directionContext";
+import {DirectionProvider} from "../hooks/useDirection";
+import Layout from "../Components/layout";
 
 
 const Home: NextPage = () => {
@@ -14,15 +15,17 @@ const Home: NextPage = () => {
     });
 
     return (
-        !isLoaded ? <div>Loading...</div> :
         <DirectionProvider>
-            <Map/>
-            <TripInfoWindow/>
-            <SearchBar/>
+            {!isLoaded ? (<div>Loading...</div>) :
+                (<Layout>
+                    <Map/>
+                    <TripInfoWindow/>
+                </Layout>)
+            }
         </DirectionProvider>
     )
 }
 
-//todo: use ssg here to fetch stored addresses
+//todo: use ssg here to fetch stored addresses and put it in layout with props or make all addresses a context
 
 export default Home;

@@ -1,4 +1,4 @@
-import {multimodalDirection} from "../hooks/directionContext";
+import {multimodalDirection} from "../hooks/useDirection";
 import Config from "../services/config.json";
 
 export default function directionReducer(directions, action): multimodalDirection|undefined {
