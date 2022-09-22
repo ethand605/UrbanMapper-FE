@@ -10,7 +10,6 @@ export default function Login() {
     const [errorMsg, setErrorMsg] = useState('');
 
     return (
-        <Layout>
             <div className="login">
                 <Form
                     errorMessage={errorMsg}
@@ -34,18 +33,24 @@ export default function Login() {
                         }
                     }}
                 />
+                <style jsx>{`
+                    .login {
+                      max-width: 21rem;
+                      margin-left: auto;
+                      margin-right: auto;
+                      margin-top: 20vh;
+                      padding: 1rem;
+                      border: 1px solid #ccc;
+                      border-radius: 4px;
+                    }
+                    
+                
+                `}</style>
             </div>
-            <style jsx>{`
-        .login {
-          max-width: 21rem;
-          margin: 0 auto;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-      `}</style>
-        </Layout>
+
+
     )
 }
+
 
 

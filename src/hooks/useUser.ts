@@ -15,7 +15,7 @@ export default function useUser() {
         }).then(r => r.json())
     });
     useEffect(() => {
-        // console.log('useUser', user);
+        console.log('useUser', user);
         if (!user || (user && !user.isLoggedIn)) return ;
 
         if (user.isLoggedIn) {

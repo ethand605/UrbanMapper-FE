@@ -1,6 +1,6 @@
 import React, {CSSProperties} from "react";
-import busIcon from "../assets/bus_icon.png";
-import bikeIcon from "../assets/bike_icon.svg";
+import busIcon from "../../assets/bus_icon.png";
+import bikeIcon from "../../assets/bike_icon.svg";
 import Image from "next/image";
 import {useDirection} from "../hooks/useDirection";
 

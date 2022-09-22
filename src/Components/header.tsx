@@ -3,6 +3,8 @@ import useUser from '../hooks/useUser';
 import {useRouter} from 'next/router';
 import SearchBar from "./searchBar";
 import React from "react";
+import Image from "next/image";
+import mapIcon from "../../assets/map_icon.png";
 
 
 export default function Header() {
@@ -12,22 +14,15 @@ export default function Header() {
         <header>
             <SearchBar/>
             <nav>
-
                 <ul>
-                    <li>
-                        <Link href="/">
-                            <a>Map</a>
-                        </Link>
-                    </li>
-                    {user?.isLoggedIn === false && (
+                    {!user?.isLoggedIn && (
                         <li>
-                            {/*TODO: fix this cannot use directions null??*/}
                             <Link href="/login">
                                 Login
                             </Link>
                         </li>
                     )}
-                    {user?.isLoggedIn === true && (
+                    {user?.isLoggedIn && (
                         <li>
                             <Link href='/'>
                                 <a
@@ -42,8 +37,20 @@ export default function Header() {
                         </li>
 
                     )}
-
+                    <li>
+                        <Link href="/">
+                            <div className="img">
+                                <Image
+                                    src={mapIcon}
+                                    alt="clickable image"
+                                    width={30}
+                                    height={30}
+                                />
+                            </div>
+                        </Link>
+                    </li>
                 </ul>
+
             </nav>
             <style jsx>{`
               ul {
@@ -82,6 +89,17 @@ export default function Header() {
                 padding-left: 1rem;
                 color: #fff;
                 background-color: #333;
+              }
+              
+              
+              .img:hover {
+                cursor: pointer;
+              }
+              
+              .img {
+                display:flex;
+                align-items: center;
+              
               }
               
             `}

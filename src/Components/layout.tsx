@@ -35,7 +35,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 //}
                 
                 Header {
-                  position: absolute;
+                  //position: absolute;
+                  height: 10vh;
                   width: 100%;
                   z-index: 99;
                 }

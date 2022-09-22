@@ -1,3 +1,4 @@
+//TODO: delete this
 import {multimodalDirection} from "../hooks/useDirection";
 import Config from "../services/config.json";
 

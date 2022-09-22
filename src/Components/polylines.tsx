@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import Image from "next/image";
-import busIcon from "../assets/bus_icon.png";
+import busIcon from "../../assets/bus_icon.png";
 import {InfoWindow, Polyline} from "@react-google-maps/api";
-import bikeIcon from "../assets/bike_icon.svg";
+import bikeIcon from "../../assets/bike_icon.svg";
 import {useDirection} from "../hooks/useDirection";
 
 //TODO: use SSR?
