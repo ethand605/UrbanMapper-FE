@@ -4,6 +4,7 @@ import useSWR from 'swr';
 
 type User = {
     user?: string
+    msg?: string
     isLoggedIn: boolean
 };
 

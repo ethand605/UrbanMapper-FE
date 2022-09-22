@@ -6,7 +6,7 @@ import {useDirection} from "../hooks/useDirection";
 
 const floatingPanelStyle = {
     position: "absolute",
-    top: "7vh",
+    top: "10vh",
     backgroundColor: "#fff",
     zIndex: 10,
     margin: 0,
@@ -44,7 +44,7 @@ export default function TripInfoWindow() {
                     Duration: {directions.duration.text}
                     <br/>
                     Biking distance: {directions.biking_distance.text}
-                    <br/><br/>{directions.departure_time.text} - {directions.arrival_time.text}
+                    <br/>{directions.departure_time.text} - {directions.arrival_time.text}
                 </b>
             </p>
             {
@@ -53,7 +53,7 @@ export default function TripInfoWindow() {
                     currentSeconds += step.duration.value;
                     let numStops = `(${step.transit_details?.num_stops} stops)`;
                     return (
-                        <div key={index}>
+                        <div className="legInstructions" key={index}>
                             <p style={{fontWeight: '500'}}>{secondsToDatePST(stepDepartTime)} - {step.start_address.split(",")[0]}</p>
                             <p>
                                 {step.transit_details?.line?.short_name}
@@ -65,6 +65,12 @@ export default function TripInfoWindow() {
                     );
                 })
             }
+            <style jsx>{`
+                .legInstructions {
+                  margin-top: 30px;
+                  font-size: 0.7rem;
+                }
+            `}</style>
         </div>
 
 

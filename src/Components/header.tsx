@@ -16,11 +16,18 @@ export default function Header() {
             <nav>
                 <ul>
                     {!user?.isLoggedIn && (
+                        <>
                         <li>
                             <Link href="/login">
                                 Login
                             </Link>
                         </li>
+                        <li>
+                            <Link href="/signUp">
+                                Sign Up
+                            </Link>
+                        </li>
+                        </>
                     )}
                     {user?.isLoggedIn && (
                         <li>

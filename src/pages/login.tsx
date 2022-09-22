@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import useUser from '../hooks/useUser';
-import Layout from '../Components/layout';
 import Form from '../Components/form';
 
 
@@ -13,6 +12,7 @@ export default function Login() {
             <div className="login">
                 <Form
                     errorMessage={errorMsg}
+                    type={'Login'}
                     onSubmit={async function handleSubmit(event) {
                         event.preventDefault();
 
@@ -21,14 +21,18 @@ export default function Login() {
                             password: event.currentTarget.password.value,
                         };
                         try {
-                            await mutateUser((await fetch('http://localhost:3001/auth/login', {
+                            const respUser = await fetch('http://localhost:3001/auth/login', {
                                 credentials: 'include',
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(body),
-                            })).json());
+                                body: JSON.stringify(body)
+                            })
+                            if (respUser.status === 200) {
+                                await mutateUser(respUser.json());
+                            }else{
+                                setErrorMsg('Incorrect username or password');
+                            }
                         } catch (error) {
-                            console.log(error);
                             setErrorMsg(error.data.message);
                         }
                     }}

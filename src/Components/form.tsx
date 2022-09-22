@@ -1,12 +1,13 @@
 import {FormEvent} from 'react'
 
-export default function Form(
-    {
+export default function Form({
      errorMessage,
      onSubmit,
+     type
      }: {
     errorMessage: string
     onSubmit: (e: FormEvent<HTMLFormElement>) => void
+    type: string
 }) {
     return (
         <form onSubmit={onSubmit}>
@@ -19,7 +20,7 @@ export default function Form(
                 <input type="text" name="password" required/>
             </label>
 
-            <button type="submit">Login</button>
+            <button type="submit">{type}</button>
 
             {errorMessage && <p className="error">{errorMessage}</p>}
 
