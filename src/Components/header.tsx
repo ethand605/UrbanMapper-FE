@@ -5,14 +5,17 @@ import SearchBar from "./searchBar";
 import React from "react";
 import Image from "next/image";
 import mapIcon from "../../assets/map_icon.png";
+import useAddresses from "../hooks/useAddresses";
 
 
 export default function Header() {
-    const {user, mutateUser} = useUser()
-    const router = useRouter()
+    const {user, mutateUser} = useUser();
+    const { addresses } = useAddresses();
+    const router = useRouter();
     return (
         <header>
             <SearchBar/>
+            <p>{addresses}</p>
             <nav>
                 <ul>
                     {!user?.isLoggedIn && (

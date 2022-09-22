@@ -5,7 +5,7 @@ import React from "react";
 import {DirectionProvider} from "../hooks/useDirection";
 import Layout from "../Components/layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps ) {
   const {isLoaded} = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     libraries: ["geometry", "drawing", "places"]
@@ -19,5 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </DirectionProvider>))
 
 }
+
 
 export default MyApp;
