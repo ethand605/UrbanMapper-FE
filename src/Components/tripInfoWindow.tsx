@@ -68,7 +68,7 @@ export default function TripInfoWindow() {
             <style jsx>{`
                 .legInstructions {
                   margin-top: 30px;
-                  font-size: 0.7rem;
+                  font-size: 0.8rem;
                 }
             `}</style>
         </div>

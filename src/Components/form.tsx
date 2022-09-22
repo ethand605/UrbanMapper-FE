@@ -17,7 +17,7 @@ export default function Form({
             </label>
             <label>
                 <span>Password</span>
-                <input type="text" name="password" required/>
+                <input type="password" name="password" required/>
             </label>
 
             <button type="submit">{type}</button>

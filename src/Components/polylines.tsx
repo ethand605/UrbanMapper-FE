@@ -5,8 +5,6 @@ import {InfoWindow, Polyline} from "@react-google-maps/api";
 import bikeIcon from "../../assets/bike_icon.svg";
 import {useDirection} from "../hooks/useDirection";
 
-//TODO: use SSR?
-
 const SinglePolyline = ({step}) => {
     const [showLegInfo, setShowLegInfo] = useState(false);
     let options: google.maps.PolylineOptions;
@@ -53,7 +51,7 @@ const SinglePolyline = ({step}) => {
                     <p>
                         <b>{step.duration.text} </b>
                         {step.transit_details != undefined ? getTransitDetails(step.transit_details) :
-                            <Image width='17%' height='17%' layout='fixed' src={bikeIcon}/>}
+                            <Image width='17%' height='17%' layout='fixed' src={bikeIcon} alt="bike icon"/>}
                     </p>
                 </div>
             </InfoWindow>

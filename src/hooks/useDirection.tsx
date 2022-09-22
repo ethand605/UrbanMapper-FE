@@ -1,8 +1,8 @@
 /// <reference types="@types/google.maps" />
-import {
+import React, {
     createContext,
     ReactNode,
-    useContext,
+    useContext, useRef,
     useState,
 } from "react";
 
@@ -32,8 +32,13 @@ const UseDirection = createContext(null);
 export const DirectionProvider = ({children}: {children: ReactNode}) => {
     const [directions, setDirections] = useState(null);
 
+    //controlled form: https://reactjs.org/docs/uncontrolled-components.html
+    //Layout being the outer-most component ensures that the value of the two refs are correct
+    const originBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
+    const destinationBoxRef: React.LegacyRef<HTMLInputElement> = useRef(null);
+
     return (
-        <UseDirection.Provider value={{directions, setDirections}}>
+        <UseDirection.Provider value={{directions, setDirections, originBoxRef, destinationBoxRef}}>
             {children}
         </UseDirection.Provider>
     );
